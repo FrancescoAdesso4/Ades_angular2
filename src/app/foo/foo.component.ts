@@ -25,7 +25,7 @@ export class FooComponent {
     this.loading = true; 
     //Facciamo una get e otteniamo l'oggetto Observable che attende la risposta
     //this.o = this.http.get('https://my-json-server.typicode.com/PaoloCarugati/dischi/records/1');
-    this.o = this.http.get('https://my-json-server.typicode.com/PaoloCarugati/dischi/records/');
+    this.o = this.http.get('https://my-json-server.typicode.com/FrancescoAdesso4/Adesso_angular/articoli');
     //Attacchiamo all'Observable o un metodo "observer" che verrà lanciato quando arriva la 
     //risposta
     this.o.subscribe(this.getData);
@@ -57,7 +57,7 @@ export class FooComponent {
    makeTypedRequest() : void
    {
      //oFoo : Observable<Foo[]>; va dichiarato tra gli attributi della classe 
-     this.oFoo = this.http.get<Foo[]>('https://my-json-server.typicode.com/PaoloCarugati/dischi/records');
+     this.oFoo = this.http.get<Foo[]>('https://my-json-server.typicode.com/FrancescoAdesso4/Adesso_angular/articoli');
      this.oFoo.subscribe(d => {this.fooData = d;});
    }  
  
@@ -67,13 +67,12 @@ export class FooComponent {
   makeCompactPost(): void {
     this.loading = true;
     this.http
-      .post('https://my-json-server.typicode.com/PaoloCarugati/dischi/records',
+      .post('https://my-json-server.typicode.com/FrancescoAdesso4/Adesso_angular/articoli',
         JSON.stringify({
-          "id": 5,
-          "title": "Storia di un minuto",
-          "artist": "PFM",
-          "year": 1972,
-          "company": "Numero Uno"      
+          //"id": 4,
+          "titolo": "Jon Jones",
+          "url": "https://www.youtube.com/watch?v=_A9UuctPrNo",
+          "like": 99999    
         })
       )
       .subscribe(d => {
